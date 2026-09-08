@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Deriv Bot Scanner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><a class="logo" href="#"><span>DB</span> DERIV BOT SCANNER</a><nav><a href="#scanner">Scanner</a><a href="#results">Results</a><a href="#about">About</a></nav><button id="menu">☰</button></header>
+<main>
+<section class="hero" id="scanner">
+<div><div class="eyebrow">FRONTEND-ONLY BOT DISCOVERY</div><h1>Scan a website.<br><b>Find its bots.</b></h1>
+<p>Enter a public website URL and discover accessible XML bot links. Preview or download individual files, or package the results into one ZIP.</p></div>
+<div class="scanner-box">
+<label for="url">Website URL</label>
+<div class="urlrow"><input id="url" placeholder="https://example.com/bots" value=""><button id="scan">SCAN</button></div>
+<div class="hint">Only publicly accessible pages that permit browser cross-origin requests can be scanned.</div>
+</div>
+</section>
+<section class="status" id="statusBox"><div class="spinner" id="spinner"></div><div><b id="statusTitle">Ready to scan</b><p id="statusText">Enter a website URL above.</p></div></section>
+<section id="results" class="results">
+<div class="head"><div><div class="eyebrow">DISCOVERED FILES</div><h2>Bot results <span id="count">0</span></h2></div><div class="actions"><button id="selectAll" class="btn">Select All</button><button id="downloadSelected" class="btn primary">Download Selected ZIP</button><button id="downloadAll" class="btn">Download All ZIP</button></div></div>
+<div class="toolbar"><input id="filter" placeholder="Filter discovered bots..."><select id="sort"><option value="name">Name A-Z</option><option value="source">Source URL</option></select></div>
+<div id="grid" class="grid"><div class="empty">No scan results yet.</div></div>
+</section>
+<section id="about" class="about"><div><div class="eyebrow">HOW IT WORKS</div><h2>Simple browser-based scanning</h2><p>The scanner reads HTML from a URL using browser fetch requests, extracts accessible links that look like XML/bot files, removes duplicates and presents them for download.</p></div>
+<div class="notice"><b>Access & copyright</b><p>This tool does not bypass login pages, Cloudflare, paywalls, CORS restrictions or other access controls. Only download and redistribute files you have permission to use.</p></div></section>
+</main>
+<footer>Independent third-party tool · Not affiliated with Deriv</footer>
+<div class="modal" id="modal"><div class="modalbox"><button id="close">×</button><div class="eyebrow">FILE PREVIEW</div><h2 id="mtitle"></h2><p id="msource"></p><pre id="xml">Loading…</pre><div class="modalactions"><button class="btn" id="copy">Copy XML</button><button class="btn primary" id="mdownload">Download XML</button></div></div></div>
+<div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><script src="js/app.js"></script>
+</body></html>
